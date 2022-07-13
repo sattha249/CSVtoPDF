@@ -1,0 +1,37 @@
+<!-- #######  THIS IS A COMMENT - Visible only in the source editor #########-->
+<style>
+table, th, td {
+border: 1px solid;
+font-family:"Angsana New";
+}
+
+  </style>
+<div>
+<h2 style = "display: inline;margin-bottom: 300;">sun vending technology</h2>
+</div>
+<p style="font-size: 1.5em;background-color: brown;">ทดสอบใช้css</p>
+<table class="editorDemoTable">
+<tbody>
+<tr>
+{{#each headers}}
+<td><strong>{{this}}</strong></td>
+{{/each}}
+</tr>
+
+{{#each results}}
+<tr>
+<td>{{this.id}}</td>
+<td>{{this.machine_id}}</td>
+<td>{{this.slot}}</td>
+<td>{{this.product_code}}</td>
+<td>{{this.product_name}}</td>
+<td>{{this.product_type}}</td>
+<td>{{this.sold}}</td>
+<td>{{this.sold_price}}</td>
+<td>{{this.total}}</td>
+</tr>
+{{/each}}
+</tr>
+</tbody>
+</table>
+<p>Developed by Sunvending R&D team</p>

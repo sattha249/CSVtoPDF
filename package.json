@@ -1,0 +1,11 @@
+{
+  "dependencies": {
+    "aws-sdk": "^2.1168.0",
+    "csv-parser": "^3.0.0",
+    "csv-writer": "^1.6.0",
+    "dynamic-html-pdf": "^1.0.4",
+    "nodemailer": "^6.7.6",
+    "path": "^0.12.7",
+    "requireg": "^0.2.2"
+  }
+}
