@@ -13,12 +13,14 @@ const secret = process.env.SECRET_KEY;
 const url = process.env.S3_URL
 const BUCKET_NAME = "trello-api";
 
-var product_id = [];
-var raw_data = [];
+let product_id = [];
+let raw_data = [];
 const real_data = []
-var head = [];
-var header = [];   // prepare for 
-var html = fs.readFileSync("./template.html", "utf8");
+let head = [];
+let header = [];   // prepare for 
+let html = fs.readFileSync("./template.html", "utf8");
+let key = process.env.S3_KEY
+let reveivers = process.env.RECEIVERS
 
 AWS.config.update({
   accessKeyId: keyId,
@@ -35,7 +37,7 @@ exports.handler = (event, context) => {
       var s3 = new AWS.S3();
      
       s3.getObject(
-        { Bucket: BUCKET_NAME, Key: "nine/2022-06-01.csv" },
+        { Bucket: BUCKET_NAME, Key: key },
         function (error, data) {
           console.log("Download file from S3...");
           if (error != null) {
@@ -163,14 +165,14 @@ exports.handler = (event, context) => {
       })
 
     let info = await transporter.sendMail({
-        from: '"SATTHA KUMPALAEW" <sattha.k@sunvending.co.th>', // sender address
-        to: 'sattha.k@sunvending.co.th', // list of receivers
+        from: Email, // sender address
+        to: reveivers, // list of receivers
         subject: "Hello world", // Subject line
         text: "test send email from nodejs", // plain text body
         html: '<h1>ลองส่งเมลล์ดูจ้า</h1>', // html body
         attachments:[
           {
-            filename: "NINE PROJECT.pdf",
+            filename: "TEST.pdf",
              content: attach
           }
         ]
